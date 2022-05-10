@@ -1,0 +1,79 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+body {
+  min-height: 100vh;
+  background-color: gainsboro;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 2s forwards;
+}
+button {
+  font-family: inherit;
+}
+.container {
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+.container h1 {
+  font-size: clamp(2rem, (1.2rem + 5vw), 4rem);
+}
+.shuffle-btn {
+  font-size: clamp(1rem, (1rem + 3vw), 2rem);
+  padding: 0.2em 0.5em;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #dd804f;
+  cursor: pointer;
+}
+.shuffle-btn:is(:active, :hover) {
+  box-shadow: 3px 2px 5px 0px #b7b7b7;
+}
+.gameboard {
+  width: min(95vw, 600px);
+  height: min(95vw, 600px);
+  color: #c19f49;
+  box-shadow: 1px 1px 5px 2px;
+  transition: color 1s;
+  position: relative;
+}
+.gameboard.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+.gameboard-correct {
+  color: green;
+}
+.cell {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 25%;
+  height: 25%;
+  font-size: clamp(2rem, (1.2rem + 5vw), 4rem);
+  transition: transform 0.3s;
+}
+.cell:last-of-type {
+  display: none;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
